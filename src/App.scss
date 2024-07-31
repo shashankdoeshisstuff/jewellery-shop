@@ -1,0 +1,275 @@
+// Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+// Import styles modules
+@import './styles/breakpoints', './styles/mixins', './styles/styles_theme';
+
+// Fonts
+$primary-fonts: "Playfair Display", serif;
+$secondary-fonts: "Edu AU VIC WA NT Hand", cursive;
+$tertiary-fonts: "Roboto", sans-serif;
+
+// Styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $primary-fonts;
+  background-color: $graps-d;
+
+  p {
+    font-family: $tertiary-fonts;
+    color: $graps-e;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+.logo {
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  color: $graps-e;
+  font-weight: 500;
+}
+
+// Header  Styles
+.header {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw 0 2vw ;
+  background-color: $graps-c;
+  color: $graps-e;
+
+  .header-logo {
+    height: 100%;
+    padding: 0 24px 0 24px;
+    font-size: 2rem;
+    color: white;
+    background-color: $graps-e;
+  }
+
+  .nav-bar {
+    height: 8vh;
+    display: flex;
+    gap: 1vw;
+
+    .close-btn {
+      display: none;
+    }
+
+    .nav-list {
+      height: 100%;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      padding: 0 1vw 0 1vw;
+      
+      &:hover {
+        color: white;
+        background-color: $graps-a;
+        transition: .2s ease-in-out;
+      }
+    }
+  }
+
+  .nav-menu-sm {
+    display: none;
+  }
+
+  // For Small size Navbar opening and Closing
+  .open-nav {
+    right: 0;
+  }
+
+  .close-nav {
+    right: -240px;
+  }
+  // End
+
+  @include md {
+    position: relative;
+    
+    .nav-menu-sm {
+      display: flex;
+      padding-right: 1rem;
+      transition: right 0.8s ease;
+
+      & * {
+        font-size: 2rem;
+      }
+
+      .nav-bar {
+        background-color: $graps-c;
+        top: 0;
+        height: 100vh;
+        width: 240px;
+        position: fixed;
+        flex-direction: column;
+        transition-property: left, right;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+
+        .close-btn {
+          display: block;
+          font-size: 48px; 
+        }
+
+        .nav-list {
+          padding: 0 20px 0 20px;
+          height: 8rem;
+        }
+      }
+    }
+
+    .nav-menu-lg {
+      display: none;
+    }
+  }
+}
+
+// Footer Styles
+.footer {
+  bottom: 0px;
+  background-color: $graps-e;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 14px;
+  padding: 0 1rem 0 1rem;
+
+  p {
+    color: $graps-f;
+  }
+
+  .copyright-sm {
+    display: none;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .footer-nav-container {
+      width: 100%;
+      display: grid;
+
+
+      .socials {
+        font-size: 1.5rem;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-self: center;
+      }
+  
+      ul {
+        display: grid;
+        font-size: 1.2rem;
+        color: $graps-c;
+        text-transform: capitalize;
+  
+        span {
+          font-size: 2rem;
+          font-weight: 500;
+          color: white;
+        }
+      }
+
+      .footer-nav {
+        padding: 24px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .footer-logo-container {
+    background-color: $graps-c;
+    padding: 2rem;
+    color: $graps-e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    p {
+      color: $graps-e;
+    }
+
+    .footer-logo {
+      font-size: 3rem;
+    }
+  }
+
+  @include lg {
+    .copyright-lg {
+      display: none;
+    }
+
+    .copyright-sm {
+      display: block;
+      text-align: center;
+    }
+    
+    grid-template-columns: auto;
+    padding: 0;
+  }
+}
+
+// World Clock Style
+.world-clocks {
+  background-color: $graps-d;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 48px;
+  padding: 48px;
+
+  .clock-card {
+    width: 100%;
+    height: 100%;
+    background-color: $graps-b;
+    display: flex;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+
+    .card-flag-box {
+      text-align: center;
+    }
+    
+    p {
+      font-family: $primary-fonts;
+      font-weight: 400;
+    }
+
+    span {
+      font-family: $secondary-fonts;
+      font-weight: 600;
+    }
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include md {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Main Style
+/* .main {
+  display: flex;
+  flex-direction: column;
+} */

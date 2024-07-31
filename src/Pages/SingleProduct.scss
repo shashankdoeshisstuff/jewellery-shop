@@ -1,0 +1,126 @@
+// Import styles modules
+@import '../styles/breakpoints', '../styles/mixins', '../styles/styles_theme';
+
+.product-page {
+  .product {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+
+    .product-images {
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-self: end;
+
+      .main-image-container {
+        overflow: hidden;
+
+        .main-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease, transform-origin 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.5);
+          }
+        }
+      }
+
+      .images-box {
+        max-width: 320px;
+        padding-top: 1vw;
+        display: flex;
+        justify-content: end;
+        gap: 1vw;
+
+        .img-container {
+          background-color: $graps-e;
+        }
+
+        .image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.4;
+          }
+
+        }
+
+        .active {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  // Additional Information
+  .grid-box {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    padding: 24px;
+
+    .container {
+      background-color: $graps-c;
+      padding: 24px;
+      color: $graps-f;
+      font-family: $tertiary-fonts;
+      border-radius: 16px;
+      display: grid;
+      gap: 16px;
+      align-items: start;
+
+      .icon {
+        font-size: 24px;
+      }
+
+      .weight {
+        display: grid;
+        gap: 8px;
+      }
+    }
+
+    .type {
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .info {
+      display: grid;
+      gap: 8px;
+
+      .hd {
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      table {
+        tr {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          justify-items: start;
+          border-bottom: 2px solid $graps-d;
+          padding: 8px;
+
+          th {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    .gemstones {
+      grid-column: span 2;
+    }
+  }
+}
